@@ -1,12 +1,10 @@
 let rec get_repeat ?(res=0) liste item = match liste with
 	| head::tail ->
-		(* print_string " progressive res" ; print_int(res); *)
 		if (head <> item)
 			then res
 		else get_repeat ~res:(res + 1) tail item
 	| [] -> res
 
-(* type ('a) t = int * 'a *)
 
 let encode ?(rlist = []) liste =
 	if (liste = []) then []
@@ -27,7 +25,6 @@ let encode ?(rlist = []) liste =
 let rec print_list_int = function
 	| head::tail ->
 		print_int (head); print_string " "; print_list_int tail
-	| [] -> print_char '\n'
 	| [] -> print_char '\n'
 
 let rec print_list_string = function

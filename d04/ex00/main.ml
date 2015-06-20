@@ -1,3 +1,5 @@
+include Color
+
 let main () =
 	let l = Color.all in
 	let rec loop lst = match lst with

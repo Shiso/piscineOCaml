@@ -1,20 +1,17 @@
-module type Value =
-sig
-	type t
 
-	(** The list of all values of type t *)
+module Value :
+sig
+
+	type t = T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10 | Jack | Queen | King | As
 	val all : t list
-	(** Interger representation of a card value, from 1 for T2 to 13 for As *)
 	val toInt : t -> int
-	(** returns "2", ..., "10", "J", "Q", "K" or "A" *)
 	val toString : t -> string
-	(** returns "2", ..., "10", "Jack", "Queen", "King" or "As" *)
 	val toStringVerbose : t -> string
-	(** Returns the next value, or calls invalid_arg if argument is As *)
 	val next : t -> t
-	(** Returns the previous value, or calls invalid_arg if argument is T2 *)
 	val previous : t -> t
-end
+
+end = struct
+
 	type t = T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10 | Jack | Queen | King | As
 
 	let all = [T2; T3; T4; T5; T6; T7; T8; T9; T10; Jack; Queen; King; As]
@@ -27,62 +24,62 @@ end
 		in
 		loop lst
 
-	let next t =
-		if t = T2 then T3
-		else if t = T3 then T4
-		else if t = T4 then T5
-		else if t = T5 then T6
-		else if t = T6 then T7
-		else if t = T7 then T8
-		else if t = T8 then T9
-		else if t = T9 then T10
-		else if t = T10 then Jack
-		else if t = Jack then Queen
-		else if t = Queen then King
-		else if t = King then As
-		else invalid_arg "As invalid"
+	let next t = match t with
+		| T2 -> T3
+		| T3 -> T4
+		| T4 -> T5
+		| T5 -> T6
+		| T6 -> T7
+		| T7 -> T8
+		| T8 -> T9
+		| T9 -> T10
+		| T10 -> Jack
+		| Jack -> Queen
+		| Queen -> King
+		| King -> As
+		| _ -> invalid_arg "As invalid"
 
-	let previous t =
-		if t = T2 then invalid_arg "T2 invalid"
-		else if t = T3 then T2
-		else if t = T4 then T3
-		else if t = T5 then T4
-		else if t = T6 then T5
-		else if t = T7 then T6
-		else if t = T8 then T7
-		else if t = T9 then T8
-		else if t = T10 then T9
-		else if t = Jack then T10
-		else if t = Queen then Jack
-		else if t = King then Queen
-		else King
+	let previous t = match t with
+		| T2 -> invalid_arg "T2 invalid"
+		| T3 -> T2
+		| T4 -> T3
+		| T5 -> T4
+		| T6 -> T5
+		| T7 -> T6
+		| T8 -> T7
+		| T9 -> T8
+		| T10 -> T9
+		| Jack -> T10
+		| Queen -> Jack
+		| _ -> King
 
-	let toString t =
-		if t = T2 then "2"
-		else if t = T3 then "3"
-		else if t = T4 then "4"
-		else if t = T5 then "5"
-		else if t = T6 then "6"
-		else if t = T7 then "7"
-		else if t = T8 then "8"
-		else if t = T9 then "9"
-		else if t = T10 then "10"
-		else if t = Jack then "J"
-		else if t = Queen then "Q"
-		else if t = King then "K"
-		else "A"
+	let toString t = match t with
+		| T2 -> "2"
+		| T3 -> "3"
+		| T4 -> "4"
+		| T5 -> "5"
+		| T6 -> "6"
+		| T7 -> "7"
+		| T8 -> "8"
+		| T9 -> "9"
+		| T10 -> "10"
+		| Jack -> "J"
+		| Queen -> "Q"
+		| King -> "K"
+		| _ -> "A"
 
-	let toStringVerbose t =
-		if t = T2 then "2"
-		else if t = T3 then "3"
-		else if t = T4 then "4"
-		else if t = T5 then "5"
-		else if t = T6 then "6"
-		else if t = T7 then "7"
-		else if t = T8 then "8"
-		else if t = T9 then "9"
-		else if t = T10 then "10"
-		else if t = Jack then "Jack"
-		else if t = Queen then "Queen"
-		else if t = King then "King"
-		else "As"
+	let toStringVerbose t = match t with
+		| T2 -> "2"
+		| T3 -> "3"
+		| T4 -> "4"
+		| T5 -> "5"
+		| T6 -> "6"
+		| T7 -> "7"
+		| T8 -> "8"
+		| T9 -> "9"
+		| T10 -> "10"
+		| Jack -> "Jack"
+		| Queen -> "Queen"
+		| King -> "King"
+		| _ -> "As"
+end

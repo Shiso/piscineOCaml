@@ -53,7 +53,6 @@ let init_board () : case =
 	let board = {chip=Nil; inc=[]} in
 	let rec fill_nil acc = function
 		| 0 -> acc
-		(* | n when (n mod 3) = 0 -> fill_nil (acc @ [{chip=P1; inc=[]}]) (n - 1) *)
 		| n -> fill_nil (acc @ [{chip=Nil; inc=[]}]) (n - 1)
 	in
 	let rec loop acc nb =

@@ -5,7 +5,7 @@ class doctor name =
 
 		val _name : string = name
 		val mutable _age = 0
-		val mutable _hp = 1000
+		val mutable _hp = 100
 		val mutable _sidekick : sidek = None
 
 		initializer print_endline @@ ("A Doctor is born ! : " ^ self#to_string)

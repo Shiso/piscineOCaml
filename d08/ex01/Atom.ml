@@ -10,7 +10,8 @@ class virtual atom name symbol atomic_number =
 		method get_atomic_number : int = _atomic_number
 
 		method to_string : string = ((self#get_symbol)^(String.make (5 - (String.length (self#get_symbol))) ' ')^":  "^(self#get_name)^(String.make (20 - (String.length (self#get_name))) ' ')^"("^(string_of_int self#get_atomic_number))^")"
-		method normalized : string = self#get_symbol^(string_of_int self#get_atomic_number)
+
+		method equals (item : atom) = (self#get_name = item#get_name) && (self#get_symbol = item#get_symbol) && (self#get_atomic_number = item#get_atomic_number)
 	end
 
 	class hydrogen =

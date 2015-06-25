@@ -120,6 +120,9 @@ let main () =
 	new Atom.ununseptium;
 	new Atom.ununoctium;] in
 	(* List.iter  *)
-	List.iter (fun (a:Atom.atom) -> print_endline (a#to_string)) atomList
+	List.iter (fun (a:Atom.atom) -> print_endline (a#to_string)) atomList;
+	let oxygen1 = new Atom.oxygen
+	and oxygen2 = new Atom.oxygen in
+	if (oxygen1#equals oxygen2) then print_endline "same oxygen atoms" else print_endline "Error"
 
 let () = ignore @@ main ()

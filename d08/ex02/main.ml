@@ -7,8 +7,6 @@ let main () =
 		new Molecule.tetrahydrocannabinol;
 		new Molecule.cisplatin;
 	] in
-	List.iter (fun (x:Molecule.molecule) -> print_endline (x#to_string)) molecules;
-	let c1 = new Molecule.cisplatin
-	and c2 = new Molecule.cisplatin in
-	if (c1#equals c2) then print_endline "molecules de cisplatin identiques" else print_endline "error"
+	List.iter (fun (x:Molecule.molecule) -> print_endline (x#get_formula)) molecules
+
 let () = ignore @@ main ()

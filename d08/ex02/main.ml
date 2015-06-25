@@ -1,12 +1,9 @@
 let main () =
-	let molecules : Molecule.molecule list = [
-		new Molecule.carbonDioxyde;
-		new Molecule.trinitrotoluene;
-		new Molecule.water;
-		new Molecule.aconitine;
-		new Molecule.tetrahydrocannabinol;
-		new Molecule.cisplatin;
+	let alkanes : Alkane.alkane list = [
+		new Alkane.methane;
+		new Alkane.ethane;
+		new Alkane.octane;
 	] in
-	List.iter (fun (x:Molecule.molecule) -> print_endline (x#get_formula)) molecules
+	List.iter (fun (x:Alkane.alkane) -> print_endline (x#to_string)) alkanes
 
 let () = ignore @@ main ()

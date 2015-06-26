@@ -1,5 +1,4 @@
 let main () =
-	let r1 = new Reaction.water_balanced in
-	if (r1#is_balanced) then print_endline "R1 balanced" else print_endline "unbalanced reaction"
+	print_endline "All virtual, no real test here"
 
 let () = ignore @@ main ()

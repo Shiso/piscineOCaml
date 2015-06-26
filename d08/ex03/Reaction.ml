@@ -3,10 +3,11 @@ class virtual reaction (inlst:(Molecule.molecule * int) list) (outlst:(Molecule.
 		val _start = inlst;
 		val _result = outlst;
 
-		method get_start = _start
-		method get_result = _result
+		method virtual get_start : (Molecule.molecule * int) list
+		method virtual get_result : (Molecule.molecule * int) list
 
-		method is_balanced =
+		method virtual balance : reaction
+		method virtual is_balanced : bool (* =
 			let rec get_atoms_list res (lst:(Molecule.molecule * int) list) = match lst with
 				| [] -> res
 				| h::t -> let rec loop res = (function
@@ -25,11 +26,6 @@ class virtual reaction (inlst:(Molecule.molecule * int) list) (outlst:(Molecule.
 				| [], _ -> false
 				| h1::t1, h2::t2 -> if (h1#get_symbol) = (h2#get_symbol) then compare t1 t2 else false
 			in
-			compare sortedIn sortedOut
+			compare sortedIn sortedOut *)
 
-	end
-
-class water_balanced =
-	object (self)
-		inherit reaction [(new Molecule.hydrogenGas, 2); (new Molecule.oxygen, 1)] [(new Molecule.water, 2)]
 	end
